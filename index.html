@@ -1,538 +1,1016 @@
 <!DOCTYPE html>
-<!-- saved from url=(0040)https://chat.z.ai/space/m1ryy1tsjxc1-art -->
-<html lang="en-US" class="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
-		<link rel="icon" type="image/png" sizes="512x512" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<link rel="shortcut icon" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<link rel="apple-touch-icon" sizes="512x512" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<meta name="apple-mobile-web-app-title" content="Z.ai - Free AI Chatbot &amp; Agent powered by GLM-5 &amp; GLM-4.7">
-		
-		<meta name="keywords" content="GLM-4.6, GLM 4.6, GLM-4.6-Air, GLM 4.6 Air, GLM 4.5, GLM4.5, GLM4.6, Deep Research, z ai, z.ai, GLM 4.5 AI, GLM 4.6 AI, GLM AI, Chat Z, zai, Chat AI, GLM, z.ia, Chat Z AI, AI chat, chatbot, z.ai chat, free ai chat, free AI, free ai chat no login, GLM-4.5, GLM-4.5 chat, GLM-4.1V, GLM-4.5V, AI assistant chat, AI PPT, AI presentation, AI presentation maker, AI slides maker, AI slides, slide deck, pitch deck, AI deck generator, free pitch deck generator, AI PPT, AI PPT maker, AI for Google Slides, AI for PowerPoint, AI writer, AI writing assistant, AI code generator, full stack code generation, AI full stack developer, claude code, Roo Code, Cline, Kilo Code, OpenCode, Codex, Cursor, GLM Coding Plan, GLM Coding, AI Coding, code writer ai, magic design, magic design tool, AI inspiration board, visual brainstorming AI, chat with AI, AI对话, AI聊天, 聊天机器人, 免费AI聊天, AI做PPT, AI写作, AI编程, 全栈开发, 灵感画板, AI tool, AI helper, AI for students, AI for marketers, AI for content creation, ChatGPT, chatgpt free, Free ChatGPT, gpt chat, Gemini, Grok, Claude, Poe AI, YouChat, Jasper AI, deepseek, qwen, 豆包, 文心一言, AI搜问答, 写作灵感AI, 代码解释工具, PPT思路生成, 如何用AI做PPT, create pitch deck from brief, AI business plan presentation, marketing report slides, AI academic paper assistant, AI legal contract drafting, write social media calendar, AI email responder,  VS Code AI assistant, AI for Notion, AI for Figma, AI math problem solver from image, AI geoguessr solver, image to code generator, table extractor from image, chart data extractor, document analysis AI, image caption generator, visual Q&amp;A, 看图猜成语, AI拍照解题, 数学题解答, 物理题解答, GeoGuess AI, 图片转表格, 图片读数据, 看图问答, analyze video, summarize video content, generate video transcript, find object in image, what is in this picture, 视频分析, 视频内容摘要, 生成视频字幕, 图片里有什么, 识别图中物体, GLM-4.7, GLM 4.7, GLM4.7, skills, coding plan, GLM-5, GLM-5.0, GLM5, GLM 5, Pony, Pony Alpha">
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Canteen - Methodist Lubuk Pakam</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Playfair+Display:wght=700&display=swap" rel="stylesheet">
+<style>
 
-		<link rel="manifest" href="https://z-cdn.chatglm.cn/z-ai/frontend/static/manifest.json">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-		
-		<link rel="search" type="application/opensearchdescription+xml" title="Z.ai - Free AI Chatbot &amp; Agent powered by GLM-5 &amp; GLM-4.7" href="https://z-cdn.chatglm.cn/z-ai/frontend/static/opensearch.xml">
-		<script async="" src="./index_files/js"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
+:root {
+  --bg: #fef7f0; --fg: #1a1a2e; --muted: #6b7280; --accent: #e63946;
+  --accent-light: #ff8fa3; --card: #ffffff; --border: #e5e7eb;
+  --success: #10b981; --warning: #f59e0b; --danger: #ef4444;
+  --info: #3b82f6;
+  --shadow: 0 10px 30px rgba(230, 57, 70, 0.08);
+}
 
-			gtag('config', 'G-Z8QTHYBHP3');
-		</script>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-		<script>
-			let metrics = {};
-			const observer = new PerformanceObserver((list) => {
-				const entries = list.getEntries();
+body {
+  font-family: 'Quicksand', sans-serif; background: var(--bg);
+  min-height: 100vh; overflow-x: hidden; position: relative;
+}
 
-				entries.forEach((entry) => {
-					// 根据不同的entry类型处理不同的性能指标
-					switch (entry.entryType) {
-						case 'navigation':
-							{
-								const navEntry = entry;
-								metrics = {
-									...metrics,
-									dns: navEntry.domainLookupEnd - navEntry.domainLookupStart,
-									response: navEntry.responseEnd - navEntry.responseStart,
-									dom_parse: navEntry.domInteractive - navEntry.responseEnd,
-									dom_ready: navEntry.domContentLoadedEventEnd - navEntry.fetchStart,
-									resource: navEntry.domComplete - navEntry.domContentLoadedEventEnd,
-									first_interactive: navEntry.domInteractive - navEntry.fetchStart,
-									first_byte: navEntry.responseStart - navEntry.domainLookupStart,
-									loaded: navEntry.loadEventEnd - navEntry.fetchStart
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-								// 发送性能指标到阿里云日志服务
-							}
-							break;
+.bg-animation {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1; overflow: hidden;
+}
+.bg-blob {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
+  animation: blobFloat 25s ease-in-out infinite;
+}
+.bg-blob:nth-child(1) { width: 500px; height: 500px; background: #ffe5ec; top: -10%; left: -10%; }
+.bg-blob:nth-child(2) { width: 400px; height: 400px; background: #e0f2fe; bottom: -10%; right: -5%; animation-delay: -10s; }
+.bg-blob:nth-child(3) { width: 300px; height: 300px; background: #ccfbf1; top: 40%; left: 50%; animation-delay: -5s; }
 
-						case 'paint':
-							if (entry.name === 'first-paint') {
-								metrics = {
-									...metrics,
-									first_paint: entry.startTime
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-							}
-							if (entry.name === 'first-contentful-paint') {
-								metrics = {
-									...metrics,
-									first_contentful_paint: entry.startTime
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-							}
-							break;
-					}
-				});
-			});
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(30px, -50px) scale(1.1) rotate(5deg); }
+  66% { transform: translate(-20px, 20px) scale(0.9) rotate(-5deg); }
+}
 
-			// 观察的性能指标类型
-			observer.observe({
-				entryTypes: ['navigation', 'paint']
-			});
-		</script>
+.hidden { display: none !important; }
+.container { max-width: 960px; margin: 0 auto; padding: 20px; }
 
-		<script>
-			function resizeIframe(obj) {
-				obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-			}
-		</script>
+/* Toast */
+.toast-container {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 9999; display: flex; flex-direction: column; gap: 10px;
+}
+.toast {
+  background: var(--card); padding: 16px 28px; border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px;
+  animation: toastIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); font-weight: 600; border-left: 5px solid var(--success);
+  z-index: 10001;
+}
+.toast.toast-exit { animation: toastOut 0.3s ease-out forwards; }
+.toast-success { border-left-color: var(--success); }
+.toast-warning { border-left-color: var(--warning); }
+.toast-info { border-left-color: var(--info); }
 
-		<script>
-			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			const initTheme = () => {
-				const metaThemeColorTag = document.querySelector('meta[name="theme-color"]');
-				// 取用户浏览器设置的主题
-				// const prefersTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+@keyframes toastIn { from { opacity: 0; transform: translateY(-50px) scale(0.8); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes toastOut { to { opacity: 0; transform: translateY(-30px) scale(0.8); } }
 
-				const prefersTheme = 'light';
+/* Main Styles */
+.main-title {
+  text-align: center; font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 38px); font-weight: 700; color: var(--accent); margin-top: 20px;
+}
+.main-title::after {
+  content: ''; display: block; width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  margin: 10px auto 0; border-radius: 2px;
+}
+.school-title { text-align: center; margin: 10px 0 20px; color: var(--muted); font-size: 14px; }
 
-				if (!localStorage?.theme) {
-					localStorage.theme = prefersTheme;
-				}
+/* Login */
+#loginPage { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
+.login-card {
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); padding: 40px;
+  border-radius: 30px; box-shadow: var(--shadow); width: 100%; max-width: 380px;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(255,255,255,0.5);
+}
+.login-card h2 { color: var(--fg); margin-bottom: 25px; text-align: center; font-size: 20px; }
+.input-group { margin-bottom: 14px; }
+.input-group input, .input-group select {
+  width: 100%; padding: 14px 18px; border: 2px solid #f3f4f6; border-radius: 14px;
+  font-size: 15px; transition: all 0.3s ease; background: #fafafa;
+}
+.input-group input:focus, .input-group select:focus {
+  outline: none; border-color: var(--accent); background: white; box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.05);
+}
+.btn-primary {
+  width: 100%; padding: 14px; background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white; border: none; border-radius: 14px; font-size: 16px; font-weight: 700;
+  cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25); }
+.btn-primary:active { transform: scale(0.95); }
 
-				if (localStorage.theme === 'system') {
-					document.documentElement.classList.add(prefersTheme);
-					metaThemeColorTag.setAttribute(
-						'content',
-						prefersTheme === 'light' ? '#F4F6F8' : '#141618'
-					);
-				} else if (localStorage.theme === 'light') {
-					document.documentElement.classList.add('light');
-					metaThemeColorTag.setAttribute('content', '#F4F6F8');
-				} else {
-					document.documentElement.classList.add('dark');
-					metaThemeColorTag.setAttribute('content', '#141618');
-				}
+.btn-secondary {
+  width: 100%; background: var(--card); color: var(--accent); border: 2px solid var(--accent);
+  padding: 12px; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 8px;
+}
 
-				// window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
-				// 	if (localStorage.theme === 'system') {
-				// 		if (e.matches) {
-				// 			document.documentElement.classList.add('dark');
-				// 			document.documentElement.classList.remove('light');
-				// 			metaThemeColorTag.setAttribute('content', '#141618');
-				// 		} else {
-				// 			document.documentElement.classList.add('light');
-				// 			document.documentElement.classList.remove('dark');
-				// 			metaThemeColorTag.setAttribute('content', '#F4F6F8');
-				// 		}
-				// 	}
-				// });
+/* User Bar */
+.user-bar {
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 12px 20px;
+  border-radius: 16px; margin-bottom: 15px; display: flex; justify-content: space-between;
+  align-items: center; box-shadow: var(--shadow); cursor: pointer; transition: all 0.3s ease; border: 1px solid transparent;
+}
+.user-bar:hover { border-color: rgba(230, 57, 70, 0.1); transform: translateY(-1px); }
+.user-name-display { font-weight: 700; color: var(--fg); font-size: 15px; }
+.user-class-display { font-size: 12px; color: var(--muted); }
+.user-badge { background: var(--accent); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+.user-badge.admin { background: var(--warning); color: white; }
 
-				function setSplashImage() {
-					const logo = document.getElementById('logo');
-					const isDarkMode = document.documentElement.classList.contains('dark');
-					const splashContainer = document.getElementById('splash-screen');
+/* Navigation */
+.nav-main { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+.nav-main button {
+  background: white; color: var(--muted); border: none; padding: 10px 20px;
+  border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.03); position: relative;
+}
+.nav-main button:hover { color: var(--accent); transform: translateY(-1px); }
+.nav-main button.active { background: var(--accent); color: white; box-shadow: 0 5px 15px rgba(230, 57, 70, 0.2); }
+.nav-badge {
+  position: absolute; top: -5px; right: -5px; background: var(--danger); color: white;
+  width: 18px; height: 18px; border-radius: 50%; font-size: 10px; display: flex;
+  align-items: center; justify-content: center; border: 2px solid white;
+}
 
-					if (isDarkMode) {
-						const darkImage = new Image();
-						darkImage.src = 'https://z-cdn.chatglm.cn/z-ai/static/logo.svg';
-						splashContainer.style.backgroundColor = '#141618';
+.sub-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+.sub-nav button {
+  background: transparent; color: var(--muted); border: 2px solid var(--border);
+  padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; font-size: 13px;
+}
+.sub-nav button.active { border-color: var(--accent); color: var(--accent); background: #fff0f3; }
 
-						darkImage.onload = () => {
-							logo.src = 'https://z-cdn.chatglm.cn/z-ai/static/logo.svg';
-							logo.style.filter = ''; // Ensure no inversion is applied if splash-dark.png exists
-						};
+.section-box {
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 20px;
+  border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.5);
+}
 
-						darkImage.onerror = () => {
-							logo.style.filter = 'invert(1)'; // Invert image if splash-dark.png is missing
-						};
-					} else {
-						splashContainer.style.backgroundColor = '#F4F6F8';
-					}
-				}
+/* Grid & Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.card {
+  background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);
+  cursor: pointer; transition: all 0.3s ease; animation: cardReveal 0.5s ease backwards; position: relative;
+}
+.card.unavailable { opacity: 0.7; filter: grayscale(0.5); }
+.card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(230, 57, 70, 0.12); }
+.card-img { width: 100%; height: 150px; object-fit: cover; }
+.card-body { padding: 15px; }
+.card-body h3 { font-size: 16px; color: var(--fg); margin-bottom: 4px; }
+.card-body p { color: var(--muted); font-size: 12px; line-height: 1.4; margin-bottom: 8px; }
+.card-price { font-size: 16px; font-weight: 700; color: var(--accent); }
 
-				// Runs after classes are assigned
-				window.addEventListener('DOMContentLoaded', setSplashImage, { once: true });
-			};
-			initTheme();
-		</script>
+.card-status {
+  position: absolute; top: 15px; right: 15px; padding: 4px 10px;
+  border-radius: 8px; font-size: 11px; font-weight: 700; color: white;
+}
+.status-available { background: var(--success); }
+.status-unavailable { background: var(--danger); }
 
-		
+@keyframes cardReveal { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-		<script>
-			// 炫酷的控制台介绍 - 根据语言显示
-			(function () {
-				// 检测用户语言偏好
-				const userLang = navigator.language || navigator.userLanguage;
-				const isChinese =
-					userLang.startsWith('zh') ||
-					userLang.includes('CN') ||
-					userLang.includes('TW') ||
-					userLang.includes('HK');
+/* Cart */
+.cart-icon {
+  position: fixed; top: 20px; right: 20px; background: var(--accent); color: white;
+  width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+  cursor: pointer; z-index: 1000; transition: transform 0.2s ease; border: none;
+}
+.cart-icon:hover { transform: scale(1.1) rotate(10deg); }
+#cartCount {
+  position: absolute; top: -5px; right: -5px; background: white; color: var(--accent);
+  width: 22px; height: 22px; border-radius: 50%; font-size: 12px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; border: 2px solid var(--accent);
+}
 
-				// 共同的 ASCII Logo
-				const logoLines = [
-					'%c███████╗     █████╗ ██╗',
-					'%c╚══███╔╝    ██╔══██╗██║',
-					'%c  ███╔╝     ███████║██║',
-					'%c ███╔╝      ██╔══██║██║',
-					'%c███████╗ ██╗██║  ██║██║',
-					'%c╚══════╝ ╚═╝╚═╝  ╚═╝╚═╝'
-				];
-				const logoColors = [
-					'color: #ff6b6b; font-family: monospace; font-size: 12px;',
-					'color: #4ecdc4; font-family: monospace; font-size: 12px;',
-					'color: #45b7d1; font-family: monospace; font-size: 12px;',
-					'color: #f9ca24; font-family: monospace; font-size: 12px;',
-					'color: #ff9ff3; font-family: monospace; font-size: 12px;',
-					'color: #6c5ce7; font-family: monospace; font-size: 12px;'
-				];
+/* Modal */
+.modal {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+  display: flex; align-items: center; justify-content: center; z-index: 2000; padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+.modal-content {
+  background: var(--card); padding: 28px; border-radius: 24px;
+  width: 100%; max-width: 420px; max-height: 90vh; overflow-y: auto;
+  position: relative; animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.close {
+  position: absolute; top: 15px; right: 15px; width: 32px; height: 32px;
+  background: #f3f4f6; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; cursor: pointer; transition: all 0.2s ease; border: none; font-size: 16px;
+}
+.close:hover { background: #fee2e2; color: var(--danger); transform: rotate(90deg); }
 
-				if (isChinese) {
-					// 中文版本
-					console.log(
-						'%c🚀 欢迎来到 Z.ai 🚀',
-						'color: #00d4ff; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00d4ff;'
-					);
-					logoLines.forEach((line, index) => console.log(line, logoColors[index]));
-					console.log('');
-					console.log(
-						'%c✨ 基于开源GLM模型的智能AI助手',
-						'color: #a29bfe; font-size: 14px; font-weight: bold;'
-					);
-					console.log('%c🧠 支持文本生成、推理和深度研究', 'color: #fd79a8; font-size: 12px;');
-					console.log('%c🌍 为中英文用户量身定制', 'color: #00b894; font-size: 12px;');
-					console.log('%c💡 免费开源的ChatGPT替代方案', 'color: #fdcb6e; font-size: 12px;');
-					console.log('');
-					console.log('%c---', 'color: #ddd;');
-					console.log(
-						'%c由 ❤️ 和大量 ☕ 驱动',
-						'color: #e84393; font-size: 11px; font-style: italic;'
-					);
-					console.log('');
-					console.log(
-						'%c🚀 加入我们！我们正在招聘优秀人才！',
-						'color: #00b894; font-size: 13px; font-weight: bold;'
-					);
-					console.log(
-						'%c💼 查看职位: https://zhipu-ai.jobs.feishu.cn/s/stmyTm5lxaU',
-						'color: #0984e3; font-size: 12px; text-decoration: underline;'
-					);
-				} else {
-					// 英文版本
-					console.log(
-						'%c🚀 Welcome to Z.ai 🚀',
-						'color: #00d4ff; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00d4ff;'
-					);
-					logoLines.forEach((line, index) => console.log(line, logoColors[index]));
-					console.log('');
-					console.log(
-						'%c✨ Advanced AI assistant powered by open-source GLM models',
-						'color: #a29bfe; font-size: 14px; font-weight: bold;'
-					);
-					console.log(
-						'%c🧠 Supports text generation, reasoning, and deep research',
-						'color: #fd79a8; font-size: 12px;'
-					);
-					console.log(
-						'%c🌍 Tailored for both English and Chinese users',
-						'color: #00b894; font-size: 12px;'
-					);
-					console.log(
-						'%c💡 Free and open-source ChatGPT alternative',
-						'color: #fdcb6e; font-size: 12px;'
-					);
-					console.log('');
-					console.log('%c---', 'color: #ddd;');
-					console.log(
-						'%cPowered by ❤️ and lots of ☕',
-						'color: #e84393; font-size: 11px; font-style: italic;'
-					);
-					console.log('');
-					console.log(
-						'%c🚀 Join us! We are hiring talented people!',
-						'color: #00b894; font-size: 13px; font-weight: bold;'
-					);
-					console.log(
-						'%c💼 View jobs: https://zhipu-ai.jobs.feishu.cn/s/stmyTm5lxaU',
-						'color: #0984e3; font-size: 12px; text-decoration: underline;'
-					);
-				}
-			})();
-		</script>
+.modal-img { width: 100%; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 16px; background: #f3f4f6; }
+.modal h3 { font-size: 22px; color: var(--fg); margin-bottom: 8px; }
+.modal-desc { color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 12px; }
+.modal-price { font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
 
-		
-		<link rel="modulepreload" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/entry/start.xrwFHarI.js">
-		<link rel="modulepreload" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DBEeFY3j.js">
-		<link rel="modulepreload" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BDmoKQ0e.js">
-		<link rel="modulepreload" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/68Ro4w9D.js">
-		<link rel="modulepreload" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/entry/app.DmbEecEi.js">
-		<link rel="modulepreload" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C1FmrZbK.js">
-		<link rel="modulepreload" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C8qwaf74.js">
-	<title>Z.ai - Free AI Chatbot &amp; Agent powered by GLM-5 &amp; GLM-4.7</title><meta name="description" content="Amazing content sharing from Z.AI"><meta property="og:type" content="website"><meta property="og:site_name" content="Z.AI"><meta property="og:title" content="Z.AI Share"><meta property="og:description" content="Amazing content sharing from Z.AI"><meta property="og:image" content="https://z-cdn.chatglm.cn/z-ai/static/share-logo.png"><meta property="og:image:alt" content="Z.AI Share"><meta property="og:image:width" content="400"><meta property="og:image:height" content="400"><meta property="og:image:type" content="image/png"><meta property="og:url" content="http://chat.z.ai/space/m1ryy1tsjxc1-art"><meta property="article:author" content="Z.AI"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Z.AI Share"><meta name="twitter:description" content="Amazing content sharing from Z.AI"><meta name="twitter:image" content="https://z-cdn.chatglm.cn/z-ai/static/share-logo.png"><meta name="twitter:image:alt" content="Z.AI Share"><meta name="robots" content="index,follow"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="application-name" content="Z.AI"><meta name="theme-color" content="#1976d2"><meta name="msapplication-TileColor" content="#1976d2"><link rel="canonical" href="http://chat.z.ai/space/m1ryy1tsjxc1-art"><script src="./index_files/jweixin-1.6.0.js.download"></script>
-<script>
-(function() {
-  var frontendCallId = Math.random().toString(36).substring(2, 8);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] ===== 开始前端微信JS-SDK初始化 =====');
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 当前页面URL:', window.location.href);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 当前页面URL (去掉#):', window.location.href.split('#')[0]);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 签名配置:', {
-    debug: false,
-    appId: 'wxa5796e47c57570b1',
-    timestamp: 1772724444,
-    nonceStr: 'WtRfidRxJaOShfNn',
-    signature: '3ce7b475ff2157309b9600777bcda6a79e048e9c',
-    jsApiList: ["updateAppMessageShareData","updateTimelineShareData","onMenuShareAppMessage","onMenuShareTimeline"]
-  });
+.btn-group { display: flex; gap: 10px; margin-top: 10px; }
+.btn-action {
+  flex: 1; padding: 12px; border-radius: 12px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s ease; border: none; font-size: 14px;
+}
+.btn-action:active { transform: scale(0.95); }
+.btn-cart { background: #fff0f3; color: var(--accent); border: 2px solid var(--accent); }
+.btn-order { background: #25d366; color: white; }
+.btn-order:disabled { background: #d1d5db; cursor: not-allowed; }
 
-  // 微信 JS-SDK 配置
-  wx.config({
-    debug: false, // 根据环境变量设置debug模式
-    appId: 'wxa5796e47c57570b1', // 公众号的唯一标识
-    timestamp: 1772724444, // 生成签名的时间戳
-    nonceStr: 'WtRfidRxJaOShfNn', // 生成签名的随机串
-    signature: '3ce7b475ff2157309b9600777bcda6a79e048e9c', // 签名
-    jsApiList: ["updateAppMessageShareData","updateTimelineShareData","onMenuShareAppMessage","onMenuShareTimeline"] // 需要使用的JS接口列表
-  });
+/* Admin */
+.admin-panel { background: #f8fafc; border-radius: 20px; padding: 20px; margin-bottom: 20px; border: 1px solid #e5e7eb; }
+.admin-panel h3 { margin-bottom: 15px; }
+.admin-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.admin-form .full-width { grid-column: span 2; }
+.admin-form input, .admin-form select, .admin-form textarea { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #e5e7eb; font-size: 13px; }
+.admin-form label { font-size: 12px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 4px; }
+.btn-admin-save { grid-column: span 2; background: var(--success); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer; }
 
-  console.log('[WeChat-Frontend-' + frontendCallId + '] wx.config() 调用完成');
+.admin-list { margin-top: 20px; }
+.admin-item { display: flex; align-items: center; gap: 10px; background: white; padding: 10px; border-radius: 12px; margin-bottom: 8px; }
+.admin-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 8px; }
+.admin-item-info { flex: 1; }
+.admin-item-info h4 { font-size: 14px; }
+.admin-item-info p { font-size: 11px; color: var(--muted); }
+.admin-item-actions { display: flex; gap: 5px; }
+.btn-icon { width: 30px; height: 30px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.btn-edit { background: #fff3cd; color: #d97706; }
+.btn-delete { background: #fee2e2; color: #dc2626; }
+.btn-toggle { background: #e0f2fe; color: #0284c7; font-weight: bold; font-size: 18px; }
 
-  // 微信 JS-SDK 就绪回调
-  wx.ready(function () {
-    console.log('[WeChat-Frontend-' + frontendCallId + '] WeChat JS-SDK ready - 微信JS-SDK就绪!');
+/* Order System Styles */
+.order-card {
+  background: white; border-radius: 16px; padding: 16px; margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid var(--info);
+}
+.order-card.processing { border-left-color: var(--warning); }
+.order-card.completed { border-left-color: var(--success); opacity: 0.6; }
 
-    // 分享给朋友的配置
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置分享给朋友...');
-    wx.updateAppMessageShareData({
-      title: 'Z.AI Share',
-      desc: 'Amazing content sharing from Z.AI',
-      link: 'http://chat.z.ai/space/m1ryy1tsjxc1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享给朋友成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享给朋友取消');
-      }
-    });
+.order-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
+.order-user { font-weight: 700; color: var(--fg); }
+.order-time { font-size: 11px; color: var(--muted); }
+.order-items { font-size: 13px; color: #4b5563; margin-bottom: 10px; }
+.order-total { font-weight: 700; color: var(--accent); font-size: 16px; margin-bottom: 12px; }
 
-    // 分享到朋友圈的配置
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置分享到朋友圈...');
-    wx.updateTimelineShareData({
-      title: 'Z.AI Share',
-      link: 'http://chat.z.ai/space/m1ryy1tsjxc1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享到朋友圈成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享到朋友圈取消');
-      }
-    });
+.status-badge {
+  padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase;
+}
+.status-pending { background: #dbeafe; color: #1e40af; }
+.status-processing { background: #fef3c7; color: #92400e; }
+.status-completed { background: #d1fae5; color: #065f46; }
 
-    // 兼容旧版本微信客户端
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置兼容旧版本分享...');
-    wx.onMenuShareAppMessage({
-      title: 'Z.AI Share',
-      desc: 'Amazing content sharing from Z.AI',
-      link: 'http://chat.z.ai/space/m1ryy1tsjxc1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享给朋友成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享给朋友取消');
-      }
-    });
+.btn-status {
+  padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600;
+  border: none; cursor: pointer; margin-right: 5px; transition: all 0.2s;
+}
+.btn-process { background: var(--warning); color: white; }
+.btn-complete { background: var(--success); color: white; }
 
-    wx.onMenuShareTimeline({
-      title: 'Z.AI Share',
-      link: 'http://chat.z.ai/space/m1ryy1tsjxc1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享到朋友圈成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享到朋友圈取消');
-      }
-    });
+.comments-section { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px; }
+.comment-input { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--border); font-size: 14px; resize: none; font-family: inherit; }
+.btn-submit { width: 100%; margin-top: 8px; padding: 10px; background: var(--fg); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
+.comments-list { margin-top: 12px; max-height: 150px; overflow-y: auto; }
+.comment-item { background: #f9fafb; padding: 10px; border-radius: 8px; margin-bottom: 8px; }
+.comment-header { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 12px; }
+.comment-author { font-weight: 700; color: var(--accent); }
+.comment-time { color: #9ca3af; font-size: 10px; }
+.comment-text { font-size: 13px; color: #4b5563; }
 
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 所有分享配置完成');
-  });
+footer { text-align: center; margin-top: 40px; padding: 20px; font-size: 13px; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.05); }
 
-  // 微信 JS-SDK 错误回调
-  wx.error(function(res){
-    console.error('[WeChat-Frontend-' + frontendCallId + '] 微信JS-SDK错误:', res);
-    console.error('[WeChat-Frontend-' + frontendCallId + '] 错误详情:', JSON.stringify(res, null, 2));
-    // 可以在这里处理签名验证失败等错误
-  });
-
-  console.log('[WeChat-Frontend-' + frontendCallId + '] ===== 微信JS-SDK初始化完成 =====');
-})();
-</script><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/nodes/0.DAUj6XzR.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/D0QH3NT1.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CRQbwhEZ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BJ4IMYPr.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/x3k3jGvJ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C0DbA49K.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CgU5AtxT.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/cGhaTNjW.js"><link rel="stylesheet" crossorigin="" href="./index_files/Toaster.uaUbY3tS.css"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DCf53FIc.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Kn7OP9-V.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DoEiGqtM.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/D19ldXBJ.js"><link rel="stylesheet" crossorigin="" href="./index_files/0.B3FnwOmG.css"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/nodes/1.BHPlyh2Q.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/nodes/31.Bbs1Ygyo.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/B-sRaUYK.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BNoueDWJ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Dz1rPVkM.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/PhMCSbgo.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DQ4rJgaw.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DMXLx9K2.js"><link rel="stylesheet" crossorigin="" href="./index_files/Modal.CyLKLEmt.css"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/iH9LkoXR.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BCu273ZZ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CgJ9yO0s.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CCB7Eg74.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Bv8UA_Em.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/4zs__BYM.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Uxxp3WVs.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CiQONcXu.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/4GvSUUov.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/D7WVLP-S.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/fQZBOmAQ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/B5uBjwbg.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/F8NPpfPU.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/5n_UAgpz.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DLuNe_aW.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CaTMz1BG.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Ci7dQfsQ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CUF35NRB.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/opO5Xl4Q.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/7h3K_E3F.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DnukT8jy.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/U4FcPap8.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DXSFO16d.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DJxvJBBp.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BcE8NvpL.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BZW5Y8a9.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CaKVUmlT.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BrrhS_tK.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/B7mYA2jW.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BdPiz93J.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BE8GOxtb.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/D23NXNxO.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/B1VFuD4M.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/B4D0KNTb.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DYSffynU.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/daiCoe39.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BuP71iuG.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CyYkWQPm.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Dsx9RpUA.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C5339FqG.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/pqGca3TM.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CqkBzzd_.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C6fgMt_u.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/7mCGwQXc.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/rn6_pD-p.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BZpPGSWB.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CR_q0D2Z.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BIP0Nf9x.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/B8Tm0B1B.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/5uy4Zm2q.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DOIuXO73.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CqbPouIW.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/hqtl79fl.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BhikujvY.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CSMwsSUs.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DRqJmzHO.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DybCm46_.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/d1PfzAJN.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Dxkz62vL.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BovF-RXk.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DsLl_dhA.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CAch31Bb.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/PBpgjWAn.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DUoyJGda.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C6VccZvV.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DyDDiKs-.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/SVrDzb7Y.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BYBQtZHZ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Dpgi56-J.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/10Yul25F.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CL4rswQO.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/2nty4PP6.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C7GrI0mS.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/gZPEUhig.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BLcsXB1b.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CbvDM43O.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CAWMwdw0.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CJwGvdoH.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BNUu7krV.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CyrI_l95.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/dT2UKbTJ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CeMx7t6z.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DRUUUiCn.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/GAUdCXMh.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BbKFkPLZ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/iZi78kD0.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Wk3EfLwt.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BLwp12x_.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C6l88sBL.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CT5SjDeg.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DYHKZkAQ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/hyKXzQKi.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/f021iQrn.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CDgyiOe6.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/sGgULCpa.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Cy7hK_dU.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BZ0o-KgM.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BbZSrqtG.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/yJSpOsPJ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/zBiVPT1Q.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/NMoD6x7X.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/B5YmIKyr.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/LtjZFZ3T.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BCpj7oPr.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DWjkAPzA.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BSIuqRcl.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/Bjfn7LgJ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/d012uDfr.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BNdqABbG.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CvueEjzQ.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/fK2iqMT_.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/C0msjzja.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/TKWOCXu9.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CypMxgyX.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DzgGmoKV.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CSkE-iF8.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DM5pbuOF.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DV7kAIMf.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/nhHL5Uee.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/D_63Yi04.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/DWVzYAdk.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BTZt-nwd.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CmCwNUZk.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BueOdcBb.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/ifDDcbQx.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BiYP9BUN.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/CVoI0UgM.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/bEuA8-LH.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BzXY-iO5.js"><link rel="stylesheet" crossorigin="" href="./index_files/ShareChatModal.D2_h0Mix.css"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/BrxGS7yv.js"><link rel="modulepreload" as="script" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/chunks/e12our0X.js"><link rel="stylesheet" crossorigin="" href="./index_files/30.DYJ9ntiN.css"></head>
-
-	<body data-sveltekit-preload-data="hover"><script src="./index_files/browser-sdk.js.download" crossorigin=""></script>
-		<script>
-			const env = location.hostname === 'chat.z.ai' ? 'prod' : 'pre';
-			!(function (c, b, d, a) {
-				c[a] || (c[a] = {});
-				c[a] = {
-					pid: 'j2c03hoppk@9a8be198b65ba4b',
-					endpoint: 'https://j2c03hoppk-default-cn.rum.aliyuncs.com',
-					// 设置环境信息，参考值：'prod' | 'gray' | 'pre' | 'daily' | 'local'
-					env: env,
-					// 设置路由模式， 参考值：'history' | 'hash'
-					spaMode: 'history',
-					collectors: {
-						// 页面性能指标监听开关，默认开启
-						perf: true,
-						// WebVitals指标监听开关，默认开启
-						webVitals: false,
-						// Ajax监听开关，默认开启
-						api: true,
-						// 静态资源开关，默认开启
-						staticResource: true,
-						// JS错误监听开关，默认开启
-						jsError: true,
-						// 控制台错误监听开关，默认开启
-						consoleError: false,
-						// 用户行为监听开关，默认开启
-						action: true
-					},
-					// 链路追踪配置开关，默认关闭
-					tracing: false,
-					parseViewName(url) {
-						const pathname = new URL(url).pathname;
-						if (!pathname) {
-							return '/';
-						}
-						return pathname.replace(/(.*)\/[a-f0-9-]+$/g, '$1');
-					},
-					evaluateApi(options, response) {
-						const traceId = response?.headers?.get?.('X-Trace-Id') || 'unknown';
-
-						return {
-							name: options.url.replace(/\/[a-f0-9-]{36}/g, '/**'),
-							properties: {
-								traceId
-							}
-						};
-					}
-				};
-				with (b)
-					with (body)
-						with (insertBefore(createElement('script'), firstChild))
-							setAttribute('crossorigin', '', (src = d));
-			})(window, document, 'https://sdk.rum.aliyuncs.com/v2/browser-sdk.js', '__rum');
-		</script>
-		<div style="display: contents">
-			<script>
-				{
-					__sveltekit_platq5 = {
-						base: "",
-						assets: "https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251"
-					};
-
-					const element = document.currentScript.parentElement;
-
-					Promise.all([
-						import("https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/entry/start.xrwFHarI.js"),
-						import("https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.0.251/_app/immutable/entry/app.DmbEecEi.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element);
-					});
-				}
-			</script>
-		 <iframe title="html" class="w-screen h-screen" frameborder="0" src="./index_files/saved_resource.html"></iframe>  <div id="svelte-announcer" aria-live="assertive" aria-atomic="true" style="position: absolute; left: 0px; top: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); overflow: hidden; white-space: nowrap; width: 1px; height: 1px;"></div></div>
-
-		
-
-		<script>
-			var token = localStorage.getItem('token');
-			var base = window.WEBUI_BASE_URL || '';
-			var lang = localStorage.locale ?? (navigator.language.includes('zh') ? 'zh-CN' : 'en-US');
-			var config = {
-				credentials: 'include',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-					...(token ? { Authorization: `Bearer ${token}` } : {}),
-					'Accept-Language': lang
-				}
-			};
-
-			window.GLOBAL_FETCHES = {
-				session: fetch(`${base}/api/v1/auths/`, config).then(async (res) => {
-					if (res.status === 401) {
-						location.replace('/auth');
-					}
-					if (!res.ok) throw await res.json();
-					return res.json();
-				}),
-				config: fetch(`${base}/api/config`, config).then(async (res) => {
-					if (!res.ok) throw await res.json();
-					return res.json();
-				}),
-				models: token && fetch(`${base}/api/models`, config),
-				settings:
-					token &&
-					fetch(`${base}/api/v1/users/user/settings`, config).then(async (res) => {
-						if (!res.ok) throw await res.json();
-						return res.json();
-					})
-			};
-		</script>
-		<script async="" src="./index_files/jquery.min.js.download"></script>
-	
-
-
-<style type="text/css" nonce="">
-	html {
-		overflow-y: hidden !important;
-	}
-
-	#splash-screen {
-		background: #f4f6f8;
-	}
-
-	html.dark #splash-screen {
-		background: #141618;
-	}
-
-	#progress-background {
-		display: none;
-	}
-
-	#progress-bar {
-		display: none;
-	}
-
-	html.her #logo {
-		display: none;
-	}
-
-	html.her #progress-background {
-		display: block;
-	}
-
-	html.her #progress-bar {
-		display: block;
-	}
-
-	@media (max-width: 24rem) {
-		html.her #progress-background {
-			display: none;
-		}
-
-		html.her #progress-bar {
-			display: none;
-		}
-	}
-
-	@keyframes pulse {
-		50% {
-			opacity: 0.65;
-		}
-	}
-
-	.animate-pulse-fast {
-		animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-	}
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .container { padding: 30px 40px; }
+  .cart-icon { right: 40px; }
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 </style>
-</body></html>
+</head>
+<body>
+
+<div class="bg-animation"><div class="bg-blob"></div><div class="bg-blob"></div><div class="bg-blob"></div></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="container">
+  <div class="login-card">
+    <h1 class="main-title">Smart Canteen</h1>
+    <p class="school-title">Kantin Sekolah Methodist Lubuk Pakam</p>
+    <h2>Login</h2>
+    
+    <div class="input-group">
+      <input type="text" id="nama" placeholder="Nama Lengkap">
+    </div>
+    <div class="input-group">
+      <select id="status" onchange="toggleLoginFields()">
+        <option value="">Pilih Status</option>
+        <option value="Siswa">Siswa</option>
+        <option value="Guru">Guru</option>
+        <option value="Admin">Admin</option>
+      </select>
+    </div>
+    
+    <div class="input-group" id="kelasGroup">
+      <input type="text" id="kelas" placeholder="Kelas (Wajib Siswa)">
+    </div>
+    
+    <div class="input-group hidden" id="adminPassGroup">
+      <input type="password" id="adminPass" placeholder="Password Admin">
+    </div>
+    
+    <button class="btn-primary" onclick="login()">Masuk</button>
+  </div>
+</div>
+
+<!-- MAIN PAGE -->
+<div id="mainPage" class="hidden container">
+  
+  <button class="cart-icon hidden" id="cartIconBtn" onclick="openCart()" aria-label="Buka Keranjang">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+      <path d="m1 1 4 4 2.68 12.24a2 2 0 0 0 2 1.76h9.72a2 2 0 0 0 2-1.76L23 6H6"/>
+    </svg>
+    <span id="cartCount">0</span>
+  </button>
+  
+  <h1 class="main-title">Smart Canteen</h1>
+  <p class="school-title">Kantin Sekolah Methodist Lubuk Pakam</p>
+  
+  <div class="user-bar" onclick="openProfileModal()">
+    <div>
+      <div class="user-name-display" id="userNameDisplay">Nama</div>
+      <div class="user-class-display" id="userClassDisplay">Status</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="user-badge" id="userBadge">User</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+    </div>
+  </div>
+  
+  <!-- Navigation Tabs -->
+  <div class="nav-main">
+    <button id="btnMenu" class="active" onclick="showSection('menu')">Menu</button>
+    <button id="btnHistory" onclick="showSection('history')">Riwayat</button>
+    <!-- Admin Buttons -->
+    <button id="btnAdminOrders" class="hidden" onclick="showSection('adminOrders')">Pesanan Masuk <span id="orderNotif" class="nav-badge hidden">0</span></button>
+    <button id="btnAdmin" class="hidden" onclick="showSection('admin')">Kelola Menu</button>
+  </div>
+  
+  <!-- Menu Section -->
+  <div id="menuSection">
+    <div class="sub-nav">
+      <button id="btnMakanan" class="active" onclick="filterMenu('makanan')">Makanan</button>
+      <button id="btnMinuman" onclick="filterMenu('minuman')">Minuman</button>
+    </div>
+    <div id="menuGrid" class="grid"></div>
+  </div>
+  
+  <!-- History Section (For User) -->
+  <div id="historySection" class="hidden">
+    <h3 style="margin-bottom:15px;">Riwayat Pesanan Anda</h3>
+    <div id="historyList"></div>
+  </div>
+  
+  <!-- Admin Orders Section -->
+  <div id="adminOrdersSection" class="hidden">
+    <h3 style="margin-bottom:15px;">Pesanan Masuk</h3>
+    <div id="adminOrderList"></div>
+  </div>
+  
+  <!-- Admin Menu Section -->
+  <div id="adminSection" class="hidden">
+    <div class="admin-panel">
+      <h3 id="formTitle">Tambah Menu Baru</h3>
+      <div class="admin-form">
+        <div><label>Nama</label><input type="text" id="newName" placeholder="Nama Menu"></div>
+        <div><label>Harga</label><input type="number" id="newPrice" placeholder="15000"></div>
+        <div><label>Kategori</label>
+          <select id="newType"><option value="makanan">Makanan</option><option value="minuman">Minuman</option></select>
+        </div>
+        <div><label>Status Kesehatan</label>
+          <select id="newCat"><option value="green">Seimbang</option><option value="yellow">Tinggi Lemak</option><option value="red">Pedas/Batasi</option></select>
+        </div>
+        <div class="full-width"><label>URL Gambar</label><input type="text" id="newImg" placeholder="https://..."></div>
+        <div class="full-width"><label>Deskripsi</label><textarea id="newDesc" rows="2"></textarea></div>
+        <div><label>Ketersediaan</label>
+          <select id="newAvail"><option value="true">Tersedia</option><option value="false">Habis</option></select>
+        </div>
+        <div style="display:flex;align-items:flex-end;"><button class="btn-admin-save" onclick="saveMenu()">Simpan Menu</button></div>
+      </div>
+    </div>
+    
+    <div class="section-box">
+      <h3 style="margin-bottom:15px;">Daftar Menu (Kelola)</h3>
+      <div id="adminMenuList" class="admin-list"></div>
+    </div>
+  </div>
+  
+  <footer>2025 Smart Canteen - Methodist Lubuk Pakam</footer>
+</div>
+
+<script>
+// ================= KONFIGURASI =================
+const ADMIN_PASSWORD = "admin123"; 
+
+// ================= DATA INIT =================
+const defaultMenu = [
+  { id: 1, name: "Rice Bowl", harga: 15000, desc: "Nasi dengan lauk pilihan seimbang.", cat: "green", img: "https://i.ibb.co.com/v4R5PPKd/ricebowl.jpg", type: "makanan", available: true },
+  { id: 2, name: "Spaghetti", harga: 12000, desc: "Pasta Italia dengan saus tomat.", cat: "green", img: "https://i.ibb.co.com/bjftf3gK/mie.jpg", type: "makanan", available: true },
+  { id: 3, name: "Mie Pangsit", harga: 15000, desc: "Mie kuah dengan pangsit.", cat: "green", img: "https://i.ibb.co.com/2zyvMTH/pangsit.jpg", type: "makanan", available: true },
+  { id: 4, name: "Ayam Asam Manis", harga: 15000, desc: "Ayam saus asam manis + nasi.", cat: "green", img: "https://i.ibb.co.com/Cp9fmkLb/asam-manis.jpg", type: "makanan", available: true },
+  { id: 5, name: "Mie Goreng", harga: 10000, desc: "Mie tumis gurih.", cat: "yellow", img: "https://i.ibb.co.com/2x4J0B1/miegoreng.jpg", type: "makanan", available: true },
+  { id: 6, name: "Nasi Goreng", harga: 12000, desc: "Nasi goreng telur & sayur.", cat: "yellow", img: "https://i.ibb.co.com/2Y0F6TT2/nasigoreng.jpg", type: "makanan", available: true },
+  { id: 7, name: "Es Teh Manis", harga: 5000, desc: "Teh manis dingin segar.", cat: "green", img: "https://i.ibb.co.com/8PqkBXz/esteh.jpg", type: "minuman", available: true },
+  { id: 8, name: "Jus Jeruk", harga: 8000, desc: "Jus jeruk segar asli.", cat: "green", img: "https://i.ibb.co.com/4pDqkKz/jusjeruk.jpg", type: "minuman", available: true }
+];
+
+let cart = [];
+let currentUser = null;
+let currentFilter = "makanan";
+let editingId = null; 
+
+// ================= UTILS =================
+function getMenuData() {
+  let data = localStorage.getItem('smartCanteenMenu');
+  if (!data) { localStorage.setItem('smartCanteenMenu', JSON.stringify(defaultMenu)); return defaultMenu; }
+  return JSON.parse(data);
+}
+function saveMenuData(data) { localStorage.setItem('smartCanteenMenu', JSON.stringify(data)); }
+
+// NEW: Order System Data
+function getOrders() {
+  let data = localStorage.getItem('smartCanteenOrders');
+  return data ? JSON.parse(data) : [];
+}
+function saveOrders(data) { localStorage.setItem('smartCanteenOrders', JSON.stringify(data)); }
+
+function showToast(message, type = 'success') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  const icons = {
+    success: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+    warning: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/></svg>',
+    info: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>'
+  };
+  toast.innerHTML = `${icons[type]}<span>${message}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => { toast.classList.add('toast-exit'); setTimeout(() => toast.remove(), 300); }, 3000);
+}
+
+// ================= AUTH =================
+function toggleLoginFields() {
+  const status = document.getElementById('status').value;
+  const kelasGroup = document.getElementById('kelasGroup');
+  const adminGroup = document.getElementById('adminPassGroup');
+  
+  if (status === 'Guru') { kelasGroup.classList.remove('hidden'); kelasGroup.style.opacity = "0.5"; document.getElementById('kelas').placeholder = "Opsional"; adminGroup.classList.add('hidden'); } 
+  else if (status === 'Admin') { kelasGroup.classList.add('hidden'); adminGroup.classList.remove('hidden'); } 
+  else { kelasGroup.classList.remove('hidden'); kelasGroup.style.opacity = "1"; document.getElementById('kelas').placeholder = "Kelas (Wajib Siswa)"; adminGroup.classList.add('hidden'); }
+}
+
+function login() {
+  const nama = document.getElementById('nama').value.trim();
+  const status = document.getElementById('status').value;
+  const kelas = document.getElementById('kelas').value.trim();
+  const adminPass = document.getElementById('adminPass').value;
+
+  if (!nama || !status) { showToast('Lengkapi data', 'warning'); return; }
+
+  if (status === 'Admin') {
+    if (adminPass !== ADMIN_PASSWORD) { showToast('Password Admin salah!', 'warning'); return; }
+    currentUser = { nama, status: 'Admin', isAdmin: true };
+  } else {
+    if (status === 'Siswa' && !kelas) { showToast('Kelas wajib diisi', 'warning'); return; }
+    currentUser = { nama, status, kelas: kelas || '-', isAdmin: false };
+  }
+
+  localStorage.setItem('smartCanteenUser', JSON.stringify(currentUser));
+  showToast(`Halo ${nama}!`, 'success');
+  document.getElementById('loginPage').classList.add('hidden');
+  document.getElementById('mainPage').classList.remove('hidden');
+  updateUI();
+}
+
+function logout() {
+  localStorage.removeItem('smartCanteenUser');
+  currentUser = null;
+  cart = [];
+  updateCart();
+  closeModal();
+  document.getElementById('mainPage').classList.add('hidden');
+  document.getElementById('loginPage').classList.remove('hidden');
+  document.getElementById('status').value = "";
+  toggleLoginFields();
+  showToast('Berhasil keluar', 'success');
+}
+
+function updateUI() {
+  const isAdmin = currentUser && currentUser.isAdmin;
+  
+  document.getElementById('userNameDisplay').textContent = currentUser.nama;
+  document.getElementById('userClassDisplay').textContent = isAdmin ? 'Administrator' : (currentUser.status === 'Guru' ? 'Guru' : `Kelas ${currentUser.kelas}`);
+  document.getElementById('userBadge').textContent = currentUser.status;
+  document.getElementById('userBadge').classList.toggle('admin', isAdmin);
+  
+  // Nav Visibility
+  document.getElementById('btnHistory').classList.toggle('hidden', isAdmin);
+  document.getElementById('btnAdminOrders').classList.toggle('hidden', !isAdmin);
+  document.getElementById('btnAdmin').classList.toggle('hidden', !isAdmin);
+  document.getElementById('cartIconBtn').classList.toggle('hidden', isAdmin);
+  
+  if(isAdmin) updateOrderNotif();
+  
+  renderMenu();
+  if (isAdmin) renderAdminList();
+}
+
+// ================= RENDER MENU =================
+function renderMenu() {
+  const data = getMenuData();
+  const filtered = data.filter(item => item.type === currentFilter);
+  const grid = document.getElementById('menuGrid');
+  
+  grid.innerHTML = filtered.map((item) => {
+    const statusClass = item.available ? 'status-available' : 'status-unavailable';
+    const statusText = item.available ? 'Tersedia' : 'Habis';
+    const cardClass = item.available ? '' : 'unavailable';
+    
+    return `
+      <div class="card ${cardClass}" onclick="openModal(${item.id})">
+        <span class="card-status ${statusClass}">${statusText}</span>
+        <img src="${item.img}" class="card-img" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
+        <div class="card-body">
+          <h3>${item.name}</h3>
+          <p>${item.desc}</p>
+          <p class="card-price">Rp ${item.harga.toLocaleString()}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function filterMenu(type) {
+  currentFilter = type;
+  document.getElementById('btnMakanan').classList.toggle('active', type === 'makanan');
+  document.getElementById('btnMinuman').classList.toggle('active', type === 'minuman');
+  renderMenu();
+}
+
+function showSection(section) {
+  // Reset active states
+  ['menuSection', 'historySection', 'adminOrdersSection', 'adminSection'].forEach(id => document.getElementById(id).classList.add('hidden'));
+  ['btnMenu', 'btnHistory', 'btnAdminOrders', 'btnAdmin'].forEach(id => document.getElementById(id).classList.remove('active'));
+  
+  document.getElementById('btnMenu').classList.toggle('active', section === 'menu');
+  document.getElementById('btnHistory').classList.toggle('active', section === 'history');
+  document.getElementById('btnAdminOrders').classList.toggle('active', section === 'adminOrders');
+  document.getElementById('btnAdmin').classList.toggle('active', section === 'admin');
+
+  // Show section
+  if(section === 'menu') {
+    document.getElementById('menuSection').classList.remove('hidden');
+    document.querySelector('.sub-nav').classList.remove('hidden');
+  } else if(section === 'history') {
+    document.getElementById('historySection').classList.remove('hidden');
+    document.querySelector('.sub-nav').classList.add('hidden');
+    renderUserHistory();
+  } else if(section === 'adminOrders') {
+    document.getElementById('adminOrdersSection').classList.remove('hidden');
+    document.querySelector('.sub-nav').classList.add('hidden');
+    renderAdminOrders();
+  } else if(section === 'admin') {
+    document.getElementById('adminSection').classList.remove('hidden');
+    document.querySelector('.sub-nav').classList.add('hidden');
+  }
+}
+
+// ================= MODAL DETAIL =================
+function openModal(id) {
+  const data = getMenuData();
+  const item = data.find(m => m.id === id);
+  if (!item) return;
+  
+  const comments = JSON.parse(localStorage.getItem('smartCanteenComments') || '{}');
+  const menuComments = comments[id] || [];
+  
+  let commentsHtml = menuComments.length === 0 ? '<p class="no-comments">Belum ada komentar</p>' : 
+    menuComments.map((c) => `
+      <div class="comment-item">
+        <div class="comment-header">
+          <span class="comment-author">${c.author}</span>
+          <span class="comment-time">${c.time}</span>
+        </div>
+        <p class="comment-text">${c.text}</p>
+      </div>
+    `).join('');
+
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.id = 'activeModal';
+  
+  const canOrder = item.available && !currentUser.isAdmin;
+  
+  modal.innerHTML = `
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">✕</button>
+      <img src="${item.img}" class="modal-img" onerror="this.src='https://via.placeholder.com/400x200?text=No+Image'">
+      <h3>${item.name}</h3>
+      <p class="modal-desc">${item.desc}</p>
+      <p style="font-size:12px; margin-bottom:8px; font-weight:600; color:${item.available ? 'var(--success)' : 'var(--danger)'}">
+        Status: ${item.available ? 'Tersedia' : 'Habis'}
+      </p>
+      <p class="modal-price">Rp ${item.harga.toLocaleString()}</p>
+      
+      <div class="btn-group">
+        <button class="btn-action btn-cart" onclick="addToCart(${id})" ${!canOrder ? 'disabled style="opacity:0.5;cursor:not-allowed"' : ''}>
+          ${!item.available ? 'Habis' : 'Tambah'}
+        </button>
+        <button class="btn-action btn-order" onclick="orderNow(${id})" ${!canOrder ? 'disabled style="opacity:0.5;cursor:not-allowed"' : ''}>
+          Pesan Langsung
+        </button>
+      </div>
+      
+      ${!currentUser.isAdmin ? `
+      <div class="comments-section">
+        <h4>Komentar</h4>
+        <textarea class="comment-input" id="commentInput" rows="2" placeholder="Tulis komentar..."></textarea>
+        <button class="btn-submit" onclick="submitComment(${id})">Kirim</button>
+        <div class="comments-list">${commentsHtml}</div>
+      </div>
+      ` : ''}
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+}
+
+function closeModal() { const modal = document.getElementById('activeModal'); if(modal) modal.remove(); }
+
+// ================= CART & ORDER =================
+function addToCart(id) {
+  const data = getMenuData();
+  const item = data.find(m => m.id === id);
+  if (!item || !item.available) return;
+  const existing = cart.find(c => c.id === id);
+  if (existing) existing.qty++; else cart.push({ id: id, qty: 1 });
+  updateCart();
+  showToast('Ditambahkan', 'success');
+}
+
+function updateCart() { const count = cart.reduce((sum, i) => sum + i.qty, 0); document.getElementById('cartCount').innerText = count; }
+
+function openCart() {
+  if(cart.length === 0) { showToast('Keranjang kosong', 'warning'); return; }
+  
+  const data = getMenuData();
+  let total = 0;
+  let itemsHtml = cart.map(item => {
+    const menu = data.find(m => m.id === item.id);
+    if(!menu) return '';
+    const subtotal = menu.harga * item.qty;
+    total += subtotal;
+    return `
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f3f4f6;">
+        <div>
+          <p style="font-weight:600; font-size:14px;">${menu.name}</p>
+          <p style="font-size:12px; color:#6b7280;">${item.qty}x Rp ${menu.harga.toLocaleString()}</p>
+        </div>
+      </div>`;
+  }).join('');
+
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.id = 'activeModal';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">✕</button>
+      <h3>Keranjang</h3>
+      <div style="margin:15px 0;">${itemsHtml}</div>
+      <div style="background:#f8fafc; padding:12px; border-radius:12px; margin-bottom:12px;">
+        <label style="font-size:12px; font-weight:700; display:block; margin-bottom:6px;">Catatan (Opsional)</label>
+        <input type="text" id="orderNote" placeholder="Contoh: Tanpa pedas" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e5e7eb;">
+      </div>
+      <h3 style="color:var(--accent);">Total: Rp ${total.toLocaleString()}</h3>
+      <button class="btn-primary" style="margin-top:15px;" onclick="placeOrder()">Pesan Sekarang</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+}
+
+function getIdentityText() {
+  if (!currentUser) return "Pengguna";
+  if (currentUser.isAdmin) return "Admin";
+  if (currentUser.status === 'Siswa') return `${currentUser.nama} (Siswa - ${currentUser.kelas})`;
+  return `${currentUser.nama} (Guru)`;
+}
+
+// NEW: Place Order Logic (Internal)
+function placeOrder() {
+  if(cart.length === 0) return;
+  
+  const data = getMenuData();
+  let total = 0;
+  let itemsDetail = [];
+  
+  cart.forEach(item => {
+    const menu = data.find(m => m.id === item.id);
+    if(menu) {
+      const subtotal = menu.harga * item.qty;
+      total += subtotal;
+      itemsDetail.push({ name: menu.name, qty: item.qty, price: menu.harga });
+    }
+  });
+  
+  const note = document.getElementById('orderNote') ? document.getElementById('orderNote').value : '';
+  const now = new Date();
+  
+  const newOrder = {
+    id: Date.now(),
+    user: currentUser.nama,
+    userIdentity: getIdentityText(),
+    items: itemsDetail,
+    total: total,
+    note: note,
+    status: 'pending', // pending, processing, completed
+    timestamp: now.getTime(),
+    timeString: now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }),
+    dateString: now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'short' })
+  };
+  
+  let orders = getOrders();
+  orders.push(newOrder);
+  saveOrders(orders);
+  
+  // Reset
+  cart = [];
+  updateCart();
+  closeModal();
+  showToast('Pesanan berhasil dikirim!', 'success');
+  
+  // Update Admin Notif if open
+  if(currentUser.isAdmin) updateOrderNotif();
+}
+
+// Direct Order from Modal
+function orderNow(id) {
+  const item = getMenuData().find(m => m.id === id);
+  if(!item) return;
+  
+  // Add to cart then immediately order
+  cart = [{ id: id, qty: 1 }];
+  openCart(); // Open cart modal to confirm (or we could directly order)
+  // Ideally we just replace the checkout flow.
+  // Let's make a simplified version that directly orders without cart modal if needed, 
+  // but opening cart allows adding notes.
+}
+
+// ================= USER HISTORY =================
+function renderUserHistory() {
+  const container = document.getElementById('historyList');
+  const orders = getOrders();
+  // Filter for current user
+  const userOrders = orders.filter(o => o.user === currentUser.nama).reverse();
+  
+  if(userOrders.length === 0) {
+    container.innerHTML = '<div class="section-box"><p style="text-align:center; color:var(--muted);">Belum ada riwayat pesanan.</p></div>';
+    return;
+  }
+  
+  container.innerHTML = userOrders.map(o => `
+    <div class="order-card ${o.status}">
+      <div class="order-header">
+        <span class="order-time">${o.dateString} - ${o.timeString}</span>
+        <span class="status-badge status-${o.status}">${o.status === 'pending' ? 'Menunggu' : o.status === 'processing' ? 'Diproses' : 'Selesai'}</span>
+      </div>
+      <div class="order-items">${o.items.map(i => `${i.name} x${i.qty}`).join(', ')}</div>
+      ${o.note ? `<p style="font-size:12px; font-style:italic; color:var(--muted); margin-bottom:5px;">Catatan: ${o.note}</p>` : ''}
+      <div class="order-total">Total: Rp ${o.total.toLocaleString()}</div>
+    </div>
+  `).join('');
+}
+
+// ================= ADMIN ORDER MANAGEMENT =================
+function updateOrderNotif() {
+  const orders = getOrders();
+  const pendingCount = orders.filter(o => o.status !== 'completed').length;
+  const notif = document.getElementById('orderNotif');
+  
+  if(pendingCount > 0) {
+    notif.textContent = pendingCount;
+    notif.classList.remove('hidden');
+  } else {
+    notif.classList.add('hidden');
+  }
+}
+
+function renderAdminOrders() {
+  const container = document.getElementById('adminOrderList');
+  const orders = getOrders().filter(o => o.status !== 'completed').reverse(); // Hide completed
+  
+  if(orders.length === 0) {
+    container.innerHTML = '<div class="section-box"><p style="text-align:center; color:var(--muted);">Tidak ada pesanan aktif.</p></div>';
+    return;
+  }
+  
+  container.innerHTML = orders.map(o => `
+    <div class="order-card ${o.status}">
+      <div class="order-header">
+        <div>
+          <span class="order-user">${o.userIdentity}</span>
+          <span class="order-time" style="display:block; margin-top:2px;">${o.dateString}, ${o.timeString}</span>
+        </div>
+        <span class="status-badge status-${o.status}">${o.status === 'pending' ? 'Menunggu' : 'Diproses'}</span>
+      </div>
+      <div class="order-items" style="background:#f9fafb; padding:8px; border-radius:8px; margin-bottom:10px;">
+        ${o.items.map(i => `<div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:2px;"><span>${i.name}</span> <span>x${i.qty}</span></div>`).join('')}
+      </div>
+      ${o.note ? `<p style="font-size:13px; color:var(--accent); font-weight:600; margin-bottom:8px;">Catatan: "${o.note}"</p>` : ''}
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+         <div class="order-total">Total: Rp ${o.total.toLocaleString()}</div>
+         <div>
+           ${o.status === 'pending' ? `<button class="btn-status btn-process" onclick="updateOrderStatus(${o.id}, 'processing')">Proses</button>` : ''}
+           ${o.status === 'processing' ? `<button class="btn-status btn-complete" onclick="updateOrderStatus(${o.id}, 'completed')">Selesai</button>` : ''}
+         </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateOrderStatus(id, status) {
+  let orders = getOrders();
+  const index = orders.findIndex(o => o.id === id);
+  if (index !== -1) {
+    orders[index].status = status;
+    saveOrders(orders);
+    renderAdminOrders();
+    updateOrderNotif();
+    showToast(`Pesanan diupdate ke ${status}`, 'info');
+  }
+}
+
+// ================= ADMIN MENU MANAGEMENT =================
+function renderAdminList() {
+  const data = getMenuData();
+  const list = document.getElementById('adminMenuList');
+  
+  list.innerHTML = data.map(item => `
+    <div class="admin-item">
+      <img src="${item.img}" onerror="this.src='https://via.placeholder.com/50'">
+      <div class="admin-item-info">
+        <h4>${item.name}</h4>
+        <p>Rp ${item.harga.toLocaleString()} | ${item.type} | ${item.available ? 'Tersedia' : 'Habis'}</p>
+      </div>
+      <div class="admin-item-actions">
+        <button class="btn-icon btn-toggle" onclick="toggleAvailability(${item.id})" title="Ubah Status">${item.available ? '✓' : '✕'}</button>
+        <button class="btn-icon btn-edit" onclick="editMenu(${item.id})" title="Edit">✎</button>
+        <button class="btn-icon btn-delete" onclick="deleteMenu(${item.id})" title="Hapus">🗑</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function saveMenu() {
+  const id = editingId || Date.now(); 
+  const name = document.getElementById('newName').value.trim();
+  const price = parseInt(document.getElementById('newPrice').value);
+  const type = document.getElementById('newType').value;
+  const cat = document.getElementById('newCat').value;
+  const img = document.getElementById('newImg').value.trim();
+  const desc = document.getElementById('newDesc').value.trim();
+  const available = document.getElementById('newAvail').value === 'true';
+
+  if (!name || !price) { showToast('Nama & Harga wajib', 'warning'); return; }
+
+  let data = getMenuData();
+  
+  if (editingId) {
+    const index = data.findIndex(m => m.id === editingId);
+    if (index !== -1) data[index] = { ...data[index], name, harga: price, type, cat, img, desc, available };
+    editingId = null; 
+    document.getElementById('formTitle').textContent = "Tambah Menu Baru";
+    document.querySelector('.btn-admin-save').textContent = "Simpan Menu";
+  } else {
+    data.push({ id, name, harga: price, type, cat, img, desc, available });
+  }
+
+  saveMenuData(data);
+  clearAdminForm();
+  renderAdminList();
+  renderMenu(); 
+  showToast('Menu disimpan!', 'success');
+}
+
+function editMenu(id) {
+  const data = getMenuData();
+  const item = data.find(m => m.id === id);
+  if (!item) return;
+
+  document.getElementById('newName').value = item.name;
+  document.getElementById('newPrice').value = item.harga;
+  document.getElementById('newType').value = item.type;
+  document.getElementById('newCat').value = item.cat;
+  document.getElementById('newImg').value = item.img;
+  document.getElementById('newDesc').value = item.desc;
+  document.getElementById('newAvail').value = item.available.toString();
+
+  editingId = id; 
+  document.getElementById('formTitle').textContent = "Edit Menu: " + item.name;
+  document.querySelector('.btn-admin-save').textContent = "Update Menu";
+  document.querySelector('.admin-panel').scrollIntoView({ behavior: 'smooth' });
+}
+
+function deleteMenu(id) {
+  if(!confirm('Yakin hapus menu ini?')) return;
+  let data = getMenuData();
+  data = data.filter(m => m.id !== id);
+  saveMenuData(data);
+  renderAdminList();
+  renderMenu();
+  showToast('Menu dihapus', 'success');
+}
+
+function toggleAvailability(id) {
+  let data = getMenuData();
+  const index = data.findIndex(m => m.id === id);
+  if (index !== -1) {
+    data[index].available = !data[index].available;
+    saveMenuData(data);
+    renderAdminList();
+    renderMenu();
+    showToast('Status diubah', 'success');
+  }
+}
+
+function clearAdminForm() {
+  document.getElementById('newName').value = '';
+  document.getElementById('newPrice').value = '';
+  document.getElementById('newImg').value = '';
+  document.getElementById('newDesc').value = '';
+  editingId = null;
+}
+
+// ================= PROFILE =================
+function openProfileModal() {
+  const isSiswa = currentUser.status === 'Siswa';
+  const isGuru = currentUser.status === 'Guru';
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.id = 'activeModal';
+  
+  modal.innerHTML = `
+    <div class="modal-content" style="max-width:350px;">
+      <button class="close" onclick="closeModal()">✕</button>
+      <h3 style="text-align:center; margin-bottom:20px;">Profil</h3>
+      
+      <div class="input-group">
+        <label style="font-size:13px; font-weight:600; display:block; margin-bottom:6px;">Nama</label>
+        <input type="text" id="editNama" value="${currentUser.nama}">
+      </div>
+      
+      <div class="input-group">
+        <label style="font-size:13px; font-weight:600; display:block; margin-bottom:6px;">Status</label>
+        <input type="text" value="${currentUser.status}" disabled style="background:#f3f4f6; color:#9ca3af;">
+      </div>
+      
+      ${isSiswa ? `
+      <div class="input-group">
+        <label style="font-size:13px; font-weight:600; display:block; margin-bottom:6px;">Kelas</label>
+        <input type="text" id="editKelas" value="${currentUser.kelas}">
+      </div>
+      ` : ''}
+      
+      <button class="btn-primary" style="margin-top:10px;" onclick="saveProfileChanges()">Simpan</button>
+      <button class="btn-secondary" onclick="logout()">Keluar</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+}
+
+function saveProfileChanges() {
+  const nama = document.getElementById('editNama').value.trim();
+  const kelasInput = document.getElementById('editKelas');
+  const kelas = kelasInput ? kelasInput.value.trim() : '-';
+
+  if (!nama) { showToast('Nama tidak boleh kosong', 'warning'); return; }
+  if (currentUser.status === 'Siswa' && !kelas) { showToast('Kelas tidak boleh kosong', 'warning'); return; }
+
+  currentUser.nama = nama;
+  currentUser.kelas = kelas;
+  localStorage.setItem('smartCanteenUser', JSON.stringify(currentUser));
+  updateUI(); 
+  closeModal();
+  showToast('Profil diperbarui', 'success');
+}
+
+// ================= INIT =================
+document.addEventListener('DOMContentLoaded', () => {
+  const savedUser = localStorage.getItem('smartCanteenUser');
+  if(savedUser) {
+    currentUser = JSON.parse(savedUser);
+    document.getElementById('loginPage').classList.add('hidden');
+    document.getElementById('mainPage').classList.remove('hidden');
+    updateUI();
+  }
+});
+</script>
+</body>
+</html>
