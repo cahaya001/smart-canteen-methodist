@@ -90,6 +90,8 @@ body {
 .input-group input:focus, .input-group select:focus {
   outline: none; border-color: var(--accent); background: white; box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.05);
 }
+.input-group input:disabled { background: #e5e7eb; cursor: not-allowed; color: #9ca3af; }
+
 .btn-primary {
   width: 100%; padding: 14px; background: linear-gradient(135deg, var(--accent), var(--accent-light));
   color: white; border: none; border-radius: 14px; font-size: 16px; font-weight: 700;
@@ -126,8 +128,9 @@ body {
 .nav-badge {
   position: absolute; top: -5px; right: -5px; background: var(--danger); color: white;
   width: 18px; height: 18px; border-radius: 50%; font-size: 10px; display: flex;
-  align-items: center; justify-content: center; border: 2px solid white;
+  align-items: center; justify-content: center; border: 2px solid white; animation: pulse 2s infinite;
 }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
 
 .sub-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
 .sub-nav button {
@@ -239,7 +242,8 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid var(--info);
 }
 .order-card.processing { border-left-color: var(--warning); }
-.order-card.completed { border-left-color: var(--success); opacity: 0.6; }
+.order-card.ready { border-left-color: var(--success); }
+.order-card.completed { border-left-color: #d1d5db; opacity: 0.6; }
 
 .order-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
 .order-user { font-weight: 700; color: var(--fg); }
@@ -252,14 +256,16 @@ body {
 }
 .status-pending { background: #dbeafe; color: #1e40af; }
 .status-processing { background: #fef3c7; color: #92400e; }
-.status-completed { background: #d1fae5; color: #065f46; }
+.status-ready { background: #d1fae5; color: #065f46; }
+.status-completed { background: #e5e7eb; color: #4b5563; }
 
 .btn-status {
   padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600;
   border: none; cursor: pointer; margin-right: 5px; transition: all 0.2s;
 }
 .btn-process { background: var(--warning); color: white; }
-.btn-complete { background: var(--success); color: white; }
+.btn-ready { background: var(--success); color: white; }
+.btn-complete { background: var(--info); color: white; }
 
 .comments-section { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px; }
 .comment-input { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--border); font-size: 14px; resize: none; font-family: inherit; }
@@ -295,8 +301,13 @@ footer { text-align: center; margin-top: 40px; padding: 20px; font-size: 13px; c
     <h2>Login</h2>
     
     <div class="input-group">
+      <input type="email" id="email" placeholder="Email (contoh: user@smart.canteen)">
+    </div>
+    
+    <div class="input-group">
       <input type="text" id="nama" placeholder="Nama Lengkap">
     </div>
+    
     <div class="input-group">
       <select id="status" onchange="toggleLoginFields()">
         <option value="">Pilih Status</option>
@@ -402,9 +413,9 @@ footer { text-align: center; margin-top: 40px; padding: 20px; font-size: 13px; c
   </div>
   
   <footer>
-  <p>2026 Smart Canteen - Methodist Lubuk Pakam</p>
-  <p>Whatsapp Informasi:085362183450</p>
-</footer>
+    <p>2026 Smart Canteen - Methodist Lubuk Pakam</p>
+    <p>Whatsapp Informasi: 085362183450</p>
+  </footer>
 </div>
 
 <script>
@@ -434,7 +445,6 @@ function getMenuData() {
 }
 function saveMenuData(data) { localStorage.setItem('smartCanteenMenu', JSON.stringify(data)); }
 
-// NEW: Order System Data
 function getOrders() {
   let data = localStorage.getItem('smartCanteenOrders');
   return data ? JSON.parse(data) : [];
@@ -460,30 +470,52 @@ function toggleLoginFields() {
   const status = document.getElementById('status').value;
   const kelasGroup = document.getElementById('kelasGroup');
   const adminGroup = document.getElementById('adminPassGroup');
-  
-  if (status === 'Guru') { kelasGroup.classList.remove('hidden'); kelasGroup.style.opacity = "0.5"; document.getElementById('kelas').placeholder = "Opsional"; adminGroup.classList.add('hidden'); } 
-  else if (status === 'Admin') { kelasGroup.classList.add('hidden'); adminGroup.classList.remove('hidden'); } 
-  else { kelasGroup.classList.remove('hidden'); kelasGroup.style.opacity = "1"; document.getElementById('kelas').placeholder = "Kelas (Wajib Siswa)"; adminGroup.classList.add('hidden'); }
+  const namaInput = document.getElementById('nama');
+
+  namaInput.disabled = false;
+  namaInput.value = "";
+  kelasGroup.classList.remove('hidden');
+  kelasGroup.style.opacity = "1";
+  adminGroup.classList.add('hidden');
+
+  if (status === 'Guru') {
+    kelasGroup.style.opacity = "0.5";
+    document.getElementById('kelas').placeholder = "Opsional";
+  } else if (status === 'Admin') {
+    namaInput.value = "Admin";
+    namaInput.disabled = true;
+    kelasGroup.classList.add('hidden');
+    adminGroup.classList.remove('hidden');
+  } else if (status === 'Siswa') {
+    document.getElementById('kelas').placeholder = "Kelas (Wajib Siswa)";
+  } else {
+    kelasGroup.classList.add('hidden');
+  }
 }
 
 function login() {
+  const email = document.getElementById('email').value.trim();
   const nama = document.getElementById('nama').value.trim();
   const status = document.getElementById('status').value;
   const kelas = document.getElementById('kelas').value.trim();
   const adminPass = document.getElementById('adminPass').value;
 
+  // Validasi Email
+  if (!email) { showToast('Email wajib diisi', 'warning'); return; }
+  if (!email.includes('@') || !email.includes('.')) { showToast('Format email tidak valid', 'warning'); return; }
+  
   if (!nama || !status) { showToast('Lengkapi data', 'warning'); return; }
 
   if (status === 'Admin') {
     if (adminPass !== ADMIN_PASSWORD) { showToast('Password Admin salah!', 'warning'); return; }
-    currentUser = { nama, status: 'Admin', isAdmin: true };
+    currentUser = { nama: "Admin", email: email, status: 'Admin', isAdmin: true };
   } else {
     if (status === 'Siswa' && !kelas) { showToast('Kelas wajib diisi', 'warning'); return; }
-    currentUser = { nama, status, kelas: kelas || '-', isAdmin: false };
+    currentUser = { nama, email, status, kelas: kelas || '-', isAdmin: false };
   }
 
   localStorage.setItem('smartCanteenUser', JSON.stringify(currentUser));
-  showToast(`Halo ${nama}!`, 'success');
+  showToast(`Halo ${currentUser.nama}!`, 'success');
   document.getElementById('loginPage').classList.add('hidden');
   document.getElementById('mainPage').classList.remove('hidden');
   updateUI();
@@ -498,6 +530,9 @@ function logout() {
   document.getElementById('mainPage').classList.add('hidden');
   document.getElementById('loginPage').classList.remove('hidden');
   document.getElementById('status').value = "";
+  document.getElementById('nama').value = "";
+  document.getElementById('email').value = "";
+  document.getElementById('adminPass').value = "";
   toggleLoginFields();
   showToast('Berhasil keluar', 'success');
 }
@@ -510,7 +545,6 @@ function updateUI() {
   document.getElementById('userBadge').textContent = currentUser.status;
   document.getElementById('userBadge').classList.toggle('admin', isAdmin);
   
-  // Nav Visibility
   document.getElementById('btnHistory').classList.toggle('hidden', isAdmin);
   document.getElementById('btnAdminOrders').classList.toggle('hidden', !isAdmin);
   document.getElementById('btnAdmin').classList.toggle('hidden', !isAdmin);
@@ -555,7 +589,6 @@ function filterMenu(type) {
 }
 
 function showSection(section) {
-  // Reset active states
   ['menuSection', 'historySection', 'adminOrdersSection', 'adminSection'].forEach(id => document.getElementById(id).classList.add('hidden'));
   ['btnMenu', 'btnHistory', 'btnAdminOrders', 'btnAdmin'].forEach(id => document.getElementById(id).classList.remove('active'));
   
@@ -564,7 +597,6 @@ function showSection(section) {
   document.getElementById('btnAdminOrders').classList.toggle('active', section === 'adminOrders');
   document.getElementById('btnAdmin').classList.toggle('active', section === 'admin');
 
-  // Show section
   if(section === 'menu') {
     document.getElementById('menuSection').classList.remove('hidden');
     document.querySelector('.sub-nav').classList.remove('hidden');
@@ -703,7 +735,6 @@ function getIdentityText() {
   return `${currentUser.nama} (Guru)`;
 }
 
-// NEW: Place Order Logic (Internal)
 function placeOrder() {
   if(cart.length === 0) return;
   
@@ -730,7 +761,7 @@ function placeOrder() {
     items: itemsDetail,
     total: total,
     note: note,
-    status: 'pending', // pending, processing, completed
+    status: 'pending', // pending -> processing -> ready -> completed
     timestamp: now.getTime(),
     timeString: now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }),
     dateString: now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'short' })
@@ -740,34 +771,24 @@ function placeOrder() {
   orders.push(newOrder);
   saveOrders(orders);
   
-  // Reset
   cart = [];
   updateCart();
   closeModal();
   showToast('Pesanan berhasil dikirim!', 'success');
-  
-  // Update Admin Notif if open
-  if(currentUser.isAdmin) updateOrderNotif();
+  updateOrderNotif();
 }
 
-// Direct Order from Modal
 function orderNow(id) {
   const item = getMenuData().find(m => m.id === id);
   if(!item) return;
-  
-  // Add to cart then immediately order
   cart = [{ id: id, qty: 1 }];
-  openCart(); // Open cart modal to confirm (or we could directly order)
-  // Ideally we just replace the checkout flow.
-  // Let's make a simplified version that directly orders without cart modal if needed, 
-  // but opening cart allows adding notes.
+  openCart();
 }
 
 // ================= USER HISTORY =================
 function renderUserHistory() {
   const container = document.getElementById('historyList');
   const orders = getOrders();
-  // Filter for current user
   const userOrders = orders.filter(o => o.user === currentUser.nama).reverse();
   
   if(userOrders.length === 0) {
@@ -775,27 +796,41 @@ function renderUserHistory() {
     return;
   }
   
-  container.innerHTML = userOrders.map(o => `
+  container.innerHTML = userOrders.map(o => {
+    // Status Logic for User
+    let statusHtml = '';
+    if(o.status === 'pending') statusHtml = '<span class="status-badge status-pending">Menunggu</span>';
+    else if(o.status === 'processing') statusHtml = '<span class="status-badge status-processing">Sedang Diproses</span>';
+    else if(o.status === 'ready') statusHtml = `<span class="status-badge status-ready">Siap Diambil</span><button class="btn-status btn-complete" style="margin-left:10px;" onclick="confirmReceive(${o.id})">Pesanan Diterima</button>`;
+    else statusHtml = '<span class="status-badge status-completed">Selesai</span>';
+
+    return `
     <div class="order-card ${o.status}">
       <div class="order-header">
         <span class="order-time">${o.dateString} - ${o.timeString}</span>
-        <span class="status-badge status-${o.status}">${o.status === 'pending' ? 'Menunggu' : o.status === 'processing' ? 'Diproses' : 'Selesai'}</span>
+        <div>${statusHtml}</div>
       </div>
       <div class="order-items">${o.items.map(i => `${i.name} x${i.qty}`).join(', ')}</div>
       ${o.note ? `<p style="font-size:12px; font-style:italic; color:var(--muted); margin-bottom:5px;">Catatan: ${o.note}</p>` : ''}
       <div class="order-total">Total: Rp ${o.total.toLocaleString()}</div>
     </div>
-  `).join('');
+  `}).join('');
+}
+
+function confirmReceive(id) {
+  updateOrderStatus(id, 'completed');
+  showToast('Pesanan selesai. Terima kasih!', 'success');
 }
 
 // ================= ADMIN ORDER MANAGEMENT =================
 function updateOrderNotif() {
   const orders = getOrders();
-  const pendingCount = orders.filter(o => o.status !== 'completed').length;
+  // Notif hitung yang pending dan processing (belum ready)
+  const activeCount = orders.filter(o => o.status === 'pending' || o.status === 'processing').length;
   const notif = document.getElementById('orderNotif');
   
-  if(pendingCount > 0) {
-    notif.textContent = pendingCount;
+  if(activeCount > 0) {
+    notif.textContent = activeCount;
     notif.classList.remove('hidden');
   } else {
     notif.classList.add('hidden');
@@ -804,14 +839,24 @@ function updateOrderNotif() {
 
 function renderAdminOrders() {
   const container = document.getElementById('adminOrderList');
-  const orders = getOrders().filter(o => o.status !== 'completed').reverse(); // Hide completed
+  // Show only pending and processing
+  const orders = getOrders().filter(o => o.status === 'pending' || o.status === 'processing').reverse();
   
   if(orders.length === 0) {
     container.innerHTML = '<div class="section-box"><p style="text-align:center; color:var(--muted);">Tidak ada pesanan aktif.</p></div>';
     return;
   }
   
-  container.innerHTML = orders.map(o => `
+  container.innerHTML = orders.map(o => {
+    // Buttons for Admin
+    let actionHtml = '';
+    if(o.status === 'pending') {
+      actionHtml = `<button class="btn-status btn-process" onclick="updateOrderStatus(${o.id}, 'processing')">Proses</button>`;
+    } else if(o.status === 'processing') {
+      actionHtml = `<button class="btn-status btn-ready" onclick="updateOrderStatus(${o.id}, 'ready')">Selesai Dibuat</button>`;
+    }
+
+    return `
     <div class="order-card ${o.status}">
       <div class="order-header">
         <div>
@@ -826,13 +871,10 @@ function renderAdminOrders() {
       ${o.note ? `<p style="font-size:13px; color:var(--accent); font-weight:600; margin-bottom:8px;">Catatan: "${o.note}"</p>` : ''}
       <div style="display:flex; justify-content:space-between; align-items:center;">
          <div class="order-total">Total: Rp ${o.total.toLocaleString()}</div>
-         <div>
-           ${o.status === 'pending' ? `<button class="btn-status btn-process" onclick="updateOrderStatus(${o.id}, 'processing')">Proses</button>` : ''}
-           ${o.status === 'processing' ? `<button class="btn-status btn-complete" onclick="updateOrderStatus(${o.id}, 'completed')">Selesai</button>` : ''}
-         </div>
+         <div>${actionHtml}</div>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 function updateOrderStatus(id, status) {
@@ -841,9 +883,16 @@ function updateOrderStatus(id, status) {
   if (index !== -1) {
     orders[index].status = status;
     saveOrders(orders);
-    renderAdminOrders();
-    updateOrderNotif();
-    showToast(`Pesanan diupdate ke ${status}`, 'info');
+    
+    // Refresh views
+    if(currentUser.isAdmin) {
+      renderAdminOrders();
+      updateOrderNotif();
+    } else {
+      renderUserHistory();
+    }
+    
+    showToast(`Status pesanan diupdate`, 'info');
   }
 }
 
@@ -951,7 +1000,6 @@ function clearAdminForm() {
 // ================= PROFILE =================
 function openProfileModal() {
   const isSiswa = currentUser.status === 'Siswa';
-  const isGuru = currentUser.status === 'Guru';
   const modal = document.createElement('div');
   modal.className = 'modal';
   modal.id = 'activeModal';
@@ -962,8 +1010,13 @@ function openProfileModal() {
       <h3 style="text-align:center; margin-bottom:20px;">Profil</h3>
       
       <div class="input-group">
+        <label style="font-size:13px; font-weight:600; display:block; margin-bottom:6px;">Email</label>
+        <input type="text" value="${currentUser.email}" disabled style="background:#f3f4f6; color:#9ca3af;">
+      </div>
+      
+      <div class="input-group">
         <label style="font-size:13px; font-weight:600; display:block; margin-bottom:6px;">Nama</label>
-        <input type="text" id="editNama" value="${currentUser.nama}">
+        <input type="text" id="editNama" value="${currentUser.nama}" ${currentUser.isAdmin ? 'disabled' : ''}>
       </div>
       
       <div class="input-group">
@@ -978,7 +1031,7 @@ function openProfileModal() {
       </div>
       ` : ''}
       
-      <button class="btn-primary" style="margin-top:10px;" onclick="saveProfileChanges()">Simpan</button>
+      ${!currentUser.isAdmin ? `<button class="btn-primary" style="margin-top:10px;" onclick="saveProfileChanges()">Simpan</button>` : ''}
       <button class="btn-secondary" onclick="logout()">Keluar</button>
     </div>
   `;
@@ -987,6 +1040,8 @@ function openProfileModal() {
 }
 
 function saveProfileChanges() {
+  if(currentUser.isAdmin) return;
+  
   const nama = document.getElementById('editNama').value.trim();
   const kelasInput = document.getElementById('editKelas');
   const kelas = kelasInput ? kelasInput.value.trim() : '-';
@@ -1002,6 +1057,20 @@ function saveProfileChanges() {
   showToast('Profil diperbarui', 'success');
 }
 
+// ================= REALTIME SYNC (SAME BROWSER TABS) =================
+window.addEventListener('storage', (e) => {
+  if (e.key === 'smartCanteenOrders') {
+    updateOrderNotif();
+    if (document.getElementById('adminOrdersSection') && !document.getElementById('adminOrdersSection').classList.contains('hidden')) renderAdminOrders();
+    if (document.getElementById('historySection') && !document.getElementById('historySection').classList.contains('hidden')) renderUserHistory();
+    showToast('Data pesanan diperbarui', 'info');
+  }
+  if (e.key === 'smartCanteenMenu') {
+     renderMenu();
+     if(currentUser && currentUser.isAdmin) renderAdminList();
+  }
+});
+
 // ================= INIT =================
 document.addEventListener('DOMContentLoaded', () => {
   const savedUser = localStorage.getItem('smartCanteenUser');
@@ -1011,6 +1080,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('mainPage').classList.remove('hidden');
     updateUI();
   }
+  toggleLoginFields();
 });
 </script>
 </body>
